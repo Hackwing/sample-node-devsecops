@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'myapp-frontend:`${env.BUILD_NUMBER}`'
+        DOCKER_IMAGE = 'myapp-frontend:$BUILD_NUMBER'
         SONAR_PROJECT_KEY = 'my-angular-frontend'
     }
 
@@ -14,7 +14,7 @@ pipeline {
         }
     stage('Show Build Number') {
             steps {
-                echo "This is build number: ${env.BUILD_NUMBER}"
+                echo "This is build number: $BUILD_NUMBER"
             }
         }
 
