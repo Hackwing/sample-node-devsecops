@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'myapp-frontend'
+        DOCKER_IMAGE = 'myapp-frontend:`$BUILD_NUMBER`'
         SONAR_PROJECT_KEY = 'my-angular-frontend'
     }
 
