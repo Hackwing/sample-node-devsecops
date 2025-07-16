@@ -7,11 +7,17 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('Clean Workspace') {
             steps {
-                git branch: 'main', url: 'https://github.com/Hackwing/sample-node-devsecops.git'
+                cleanWs()
             }
         }
+
+        // stage('Checkout Code') {
+        //     steps {
+        //         git branch: 'main', url: 'https://github.com/Hackwing/sample-node-devsecops.git'
+        //     }
+        // }
 
         stage('Install Dependencies') {
             steps {
