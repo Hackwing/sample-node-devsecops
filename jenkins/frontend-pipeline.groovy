@@ -24,7 +24,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 dir('frontend') {
-                    withSonarQubeEnv('Sonarqube1') {
+                    withSonarQubeEnv('SonarQube') {
                         sh 'npx sonar-scanner'
                     }
                 }
