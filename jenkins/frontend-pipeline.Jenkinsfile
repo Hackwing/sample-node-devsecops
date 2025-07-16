@@ -55,7 +55,23 @@ pipeline {
 
         stage('Run Frontend in Docker') {
             steps {
-                sh 'docker run -d -p 4200:80 $DOCKER_IMAGE'
+                script {
+                    // Run container in detached mode and store its ID
+                    sh 'docker run -d -p 4200:80 $DOCKER_IMAGE > container_id.txt'
+                }
+            }
+        }
+
+        stage('Stop Docker Container') {
+            steps {
+                script {
+                    // Read container ID and stop it
+                    sh '''
+                        CONTAINER_ID=$(cat container_id.txt)
+                        docker stop $CONTAINER_ID
+                        docker rm $CONTAINER_ID
+                    '''
+                }
             }
         }
     }
