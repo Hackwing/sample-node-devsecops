@@ -12,6 +12,11 @@ pipeline {
                 cleanWs()
             }
         }
+    stage('Show Build Number') {
+            steps {
+                echo "This is build number: ${env.BUILD_NUMBER}"
+            }
+        }
 
         stage('Checkout Code') {
             steps {
