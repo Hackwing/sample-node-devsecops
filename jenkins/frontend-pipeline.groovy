@@ -13,11 +13,12 @@ pipeline {
             }
         }
 
-        // stage('Checkout Code') {
-        //     steps {
-        //         git branch: 'main', url: 'https://github.com/Hackwing/sample-node-devsecops.git'
-        //     }
-        // }
+        stage('Checkout Code') {
+            steps {
+                // git branch: 'main', url: 'https://github.com/Hackwing/sample-node-devsecops.git'
+                checkout scm
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
