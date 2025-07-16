@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: 'github', branch: 'main', url: 'https://github.com/Roche-Micheal/e2e-devsecops.git'
+                git branch: 'main', url: 'https://github.com/Roche-Micheal/e2e-devsecops.git'
             }
         }
 
